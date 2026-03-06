@@ -6,14 +6,11 @@
   <title>Business Journey Quiz — Find Your Perfect Next Step</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
-
   <script>
     const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzZXnwLsqyZ2MAsYBlGQeKrxB18CyKiM9n6hQxSzra7aDM0IVU1HII2Z-oy0PYR3UrCew/exec';
   </script>
-
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     :root {
       --purple:       #6D28D9;
       --purple-mid:   #7C3AED;
@@ -37,9 +34,7 @@
         0 2px 4px rgba(0,0,0,0.04),
         0 20px 48px rgba(109,40,217,0.10);
     }
-
     html { scroll-behavior: smooth; }
-
     body {
       font-family: 'Inter', system-ui, -apple-system, sans-serif;
       background: linear-gradient(155deg, #F0EBFF 0%, #FDF0F8 50%, #EAF0FF 100%);
@@ -49,7 +44,6 @@
       align-items: center;
       padding: 56px 16px 80px;
     }
-
     /* ── Progress bar ─────────────────────────────────────── */
     #progressBar {
       position: fixed;
@@ -68,7 +62,6 @@
       transition: width 0.5s cubic-bezier(0.4,0,0.2,1);
       border-radius: 0 2px 2px 0;
     }
-
     /* ── Step counter ──────────────────────────────────────── */
     #stepCounter {
       font-size: 12px;
@@ -81,7 +74,6 @@
       transition: opacity 0.3s;
     }
     #stepCounter.show { opacity: 1; }
-
     /* ── Quiz container ────────────────────────────────────── */
     .quiz-wrap {
       width: 100%;
@@ -90,7 +82,6 @@
       flex-direction: column;
       align-items: stretch;
     }
-
     /* ── Card ─────────────────────────────────────────────── */
     .card {
       background: var(--white);
@@ -102,7 +93,6 @@
       .card { padding: 32px 22px; }
       body  { padding-top: 36px; }
     }
-
     /* ── Screen transitions ────────────────────────────────── */
     .screen { display: none; }
     .screen.active {
@@ -113,7 +103,6 @@
       from { opacity: 0; transform: translateY(28px); }
       to   { opacity: 1; transform: translateY(0);    }
     }
-
     /* ── Back button ──────────────────────────────────────── */
     .btn-back {
       display: inline-flex;
@@ -130,7 +119,6 @@
       transition: color 0.15s;
     }
     .btn-back:hover { color: var(--gray-900); }
-
     /* ── Welcome screen ───────────────────────────────────── */
     .badge {
       display: inline-flex;
@@ -146,7 +134,6 @@
       text-transform: uppercase;
       margin-bottom: 20px;
     }
-
     .welcome-title {
       font-size: clamp(26px, 5.5vw, 36px);
       font-weight: 900;
@@ -161,14 +148,12 @@
       -webkit-text-fill-color: transparent;
       background-clip: text;
     }
-
     .welcome-desc {
       font-size: 15px;
       color: var(--gray-500);
       line-height: 1.75;
       margin-bottom: 28px;
     }
-
     .stats-row {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -194,7 +179,6 @@
       letter-spacing: 0.5px;
       margin-top: 2px;
     }
-
     /* ── Fields ───────────────────────────────────────────── */
     .field { margin-bottom: 14px; }
     .field label {
@@ -237,7 +221,6 @@
       display: none;
     }
     .field .err-msg.show { display: block; }
-
     /* ── Primary button ───────────────────────────────────── */
     .btn-primary {
       display: flex;
@@ -268,7 +251,6 @@
       cursor: not-allowed;
       transform: none;
     }
-
     .privacy-note {
       display: flex;
       align-items: center;
@@ -278,7 +260,6 @@
       color: var(--gray-500);
       margin-top: 14px;
     }
-
     /* ── Question header ──────────────────────────────────── */
     .q-number {
       font-size: 10px;
@@ -302,10 +283,8 @@
       margin-bottom: 22px;
       line-height: 1.55;
     }
-
     /* ── Option cards ─────────────────────────────────────── */
     .options { display: flex; flex-direction: column; gap: 8px; margin-bottom: 22px; }
-
     .option {
       display: flex;
       align-items: center;
@@ -328,7 +307,6 @@
       border-color: var(--purple-mid);
       background: var(--purple-light);
     }
-
     .opt-icon {
       font-size: 20px;
       flex-shrink: 0;
@@ -377,7 +355,6 @@
       display: none;
     }
     .opt-error.show { display: block; }
-
     .auto-hint {
       text-align: center;
       font-size: 11px;
@@ -385,7 +362,6 @@
       margin-top: -6px;
       margin-bottom: 16px;
     }
-
     /* ── Calculating screen ───────────────────────────────── */
     .calc-wrap { text-align: center; padding: 20px 0; }
     .calc-icon {
@@ -429,7 +405,6 @@
       0%, 60%, 100% { transform: translateY(0); }
       30%           { transform: translateY(-14px); }
     }
-
     /* ── Result screen ────────────────────────────────────── */
     .ty-wrap { text-align: center; }
     .ty-icon {
@@ -512,7 +487,6 @@
       color: var(--purple-mid);
       font-weight: 700;
     }
-
     /* ── Setup notice ─────────────────────────────────────── */
     .setup-notice {
       background: #FFFBEB;
@@ -531,7 +505,6 @@
       border-radius: 4px;
       font-size: 12px;
     }
-
     /* ── Result guidance line ─────────────────────────────── */
     .result-guidance {
       font-size: 14px;
@@ -541,7 +514,6 @@
       margin-bottom: 16px;
       font-style: italic;
     }
-
     /* ── Result CTA link ──────────────────────────────────── */
     .result-cta {
       display: inline-block;
@@ -553,7 +525,6 @@
       transition: color 0.15s;
     }
     .result-cta:hover { color: var(--rose); }
-
     /* ── Yes / No buttons (screen 9) ─────────────────────── */
     .quick-question {
       background: var(--gray-100);
@@ -619,7 +590,6 @@
       border-color: var(--gray-500);
       color: var(--gray-700);
     }
-
     /* ── Stage buttons (screen 11) ────────────────────────── */
     .stage-options { display: flex; flex-direction: column; gap: 10px; margin: 16px 0 22px; }
     .stage-btn {
@@ -653,7 +623,6 @@
       color: var(--purple-mid);
     }
     .stage-btn:hover .stage-btn-text { color: var(--purple-mid); }
-
     /* ── Recommendation screen (screen 10) ────────────────── */
     .rec-intro {
       font-size: 14px;
@@ -666,19 +635,15 @@
   </style>
 </head>
 <body>
-
 <!-- Fixed progress bar -->
 <div id="progressBar"><div id="progressFill"></div></div>
-
 <div class="quiz-wrap">
   <div id="stepCounter"></div>
-
   <!-- ═══════════════════════════════════════════════════════
        SCREEN 0 — Welcome
   ════════════════════════════════════════════════════════ -->
   <div class="screen active" id="screen-0">
     <div class="card">
-
       <div class="setup-notice" id="setupNotice">
         <strong>⚠️ Developer Setup Required</strong>
         Open <code>quiz.html</code> in a text editor and replace
@@ -686,12 +651,10 @@
         deployed Apps Script URL. See <code>apps-script.js</code> for instructions.
         Remove this notice when done.
       </div>
-
       <h1 class="welcome-title">
         I want to make sure the emails and resources I send you are
         <span class="gradient-text">actually helpful for where you are right now.</span>
       </h1>
-
       <p class="welcome-desc">
         Some people in this community are just exploring their business idea. Others are building
         their first course or coaching program. And some are ready to start attracting buyers.
@@ -699,7 +662,6 @@
         These quick questions will help me better understand your stage so I can share the most
         relevant next steps for you.
       </p>
-
       <div class="stats-row">
         <div class="stat-box">
           <div class="s-num">7</div>
@@ -710,7 +672,6 @@
           <div class="s-lbl">To complete</div>
         </div>
       </div>
-
       <div class="field" id="emailFieldWrap" style="display:none;">
         <label for="emailInput">Your email address</label>
         <input
@@ -721,13 +682,11 @@
         />
         <span class="err-msg" id="emailErr">Please enter a valid email address.</span>
       </div>
-
       <button class="btn-primary" onclick="startQuiz()">
         Let's Go &nbsp;→
       </button>
     </div>
   </div>
-
   <!-- ═══════════════════════════════════════════════════════
        SCREEN 1 — Q1: Business Stage
   ════════════════════════════════════════════════════════ -->
@@ -737,7 +696,6 @@
       <div class="q-number">Question 1 of 7</div>
       <h2 class="q-text">Where are you in your online business journey right now?</h2>
       <p class="q-hint">Choose the option that best describes where you are today.</p>
-
       <div class="options" id="opts-q1">
         <button class="option" data-q="q1" data-key="explorer" data-category="explorer" data-label="I'm curious about starting something online but haven't chosen an idea yet" onclick="pick(this)">
           <span class="opt-icon">🌱</span>
@@ -765,13 +723,11 @@
           <span class="opt-radio"></span>
         </button>
       </div>
-
       <div class="opt-error" id="err-q1">Please select an option to continue.</div>
       <p class="auto-hint">Select an option to automatically advance</p>
       <button class="btn-primary" onclick="next(1)">Continue &nbsp;→</button>
     </div>
   </div>
-
   <!-- ═══════════════════════════════════════════════════════
        SCREEN 2 — Q2: Which statement feels most like you
   ════════════════════════════════════════════════════════ -->
@@ -781,7 +737,6 @@
       <div class="q-number">Question 2 of 7</div>
       <h2 class="q-text">Which statement feels most like you right now?</h2>
       <p class="q-hint">Be honest — this helps us send you the most useful resources.</p>
-
       <div class="options" id="opts-q2">
         <button class="option" data-q="q2" data-key="explorer" data-category="explorer" data-label="I want more freedom but I'm not sure what I would teach" onclick="pick(this)">
           <span class="opt-icon">🤔</span>
@@ -809,13 +764,11 @@
           <span class="opt-radio"></span>
         </button>
       </div>
-
       <div class="opt-error" id="err-q2">Please select an option to continue.</div>
       <p class="auto-hint">Select an option to automatically advance</p>
       <button class="btn-primary" onclick="next(2)">Continue &nbsp;→</button>
     </div>
   </div>
-
   <!-- ═══════════════════════════════════════════════════════
        SCREEN 3 — Q3: Email list / audience size
   ════════════════════════════════════════════════════════ -->
@@ -825,7 +778,6 @@
       <div class="q-number">Question 3 of 7</div>
       <h2 class="q-text">Do you currently have an email list or audience?</h2>
       <p class="q-hint">Think about your email list, social following, or community size.</p>
-
       <div class="options" id="opts-q3">
         <button class="option" data-q="q3" data-key="explorer" data-category="explorer" data-label="No audience yet" onclick="pick(this)">
           <span class="opt-icon">👤</span>
@@ -853,13 +805,11 @@
           <span class="opt-radio"></span>
         </button>
       </div>
-
       <div class="opt-error" id="err-q3">Please select an option to continue.</div>
       <p class="auto-hint">Select an option to automatically advance</p>
       <button class="btn-primary" onclick="next(3)">Continue &nbsp;→</button>
     </div>
   </div>
-
   <!-- ═══════════════════════════════════════════════════════
        SCREEN 4 — Q4: Biggest obstacle
   ════════════════════════════════════════════════════════ -->
@@ -869,7 +819,6 @@
       <div class="q-number">Question 4 of 7</div>
       <h2 class="q-text">What is the biggest thing slowing you down right now?</h2>
       <p class="q-hint">Be honest — this helps us send you the most useful resources.</p>
-
       <div class="options" id="opts-q4">
         <button class="option" data-q="q4" data-key="explorer" data-category="explorer" data-label="I don't know what my business should be about" onclick="pick(this)">
           <span class="opt-icon">🤷</span>
@@ -897,13 +846,11 @@
           <span class="opt-radio"></span>
         </button>
       </div>
-
       <div class="opt-error" id="err-q4">Please select an option to continue.</div>
       <p class="auto-hint">Select an option to automatically advance</p>
       <button class="btn-primary" onclick="next(4)">Continue &nbsp;→</button>
     </div>
   </div>
-
   <!-- ═══════════════════════════════════════════════════════
        SCREEN 5 — Q5: What success looks like
   ════════════════════════════════════════════════════════ -->
@@ -913,7 +860,6 @@
       <div class="q-number">Question 5 of 7</div>
       <h2 class="q-text">What would success with an online business look like for you?</h2>
       <p class="q-hint">Choose the outcome that excites you most.</p>
-
       <div class="options" id="opts-q5">
         <button class="option" data-q="q5" data-key="explorer" data-category="explorer" data-label="Figuring out a business idea that could actually work" onclick="pick(this)">
           <span class="opt-icon">🌟</span>
@@ -941,13 +887,11 @@
           <span class="opt-radio"></span>
         </button>
       </div>
-
       <div class="opt-error" id="err-q5">Please select an option to continue.</div>
       <p class="auto-hint">Select an option to automatically advance</p>
       <button class="btn-primary" onclick="next(5)">Continue &nbsp;→</button>
     </div>
   </div>
-
   <!-- ═══════════════════════════════════════════════════════
        SCREEN 6 — Q6: Current situation
   ════════════════════════════════════════════════════════ -->
@@ -957,7 +901,6 @@
       <div class="q-number">Question 6 of 7</div>
       <h2 class="q-text">Which statement sounds most like your current situation?</h2>
       <p class="q-hint">Choose the one that resonates most right now.</p>
-
       <div class="options" id="opts-q6">
         <button class="option" data-q="q6" data-key="explorer" data-category="explorer" data-label="I know I want something different than my 9-5" onclick="pick(this)">
           <span class="opt-icon">💼</span>
@@ -985,13 +928,11 @@
           <span class="opt-radio"></span>
         </button>
       </div>
-
       <div class="opt-error" id="err-q6">Please select an option to continue.</div>
       <p class="auto-hint">Select an option to automatically advance</p>
       <button class="btn-primary" onclick="next(6)">Continue &nbsp;→</button>
     </div>
   </div>
-
   <!-- ═══════════════════════════════════════════════════════
        SCREEN 7 — Q7: Open-Ended (right before results)
   ════════════════════════════════════════════════════════ -->
@@ -1004,22 +945,18 @@
         Tell us in your own words — there's no wrong answer. This helps us send you the most
         relevant resources. (You can leave this blank if you prefer.)
       </p>
-
       <div class="field">
         <textarea
           id="q7answer"
           placeholder="e.g. career coaching, parenting, leadership, wellness, business…"
         ></textarea>
       </div>
-
       <button class="btn-primary" onclick="submitQuiz()">
         Get My Results &nbsp;→
       </button>
-
       <p class="privacy-note">🔒 Your answers are private and secure.</p>
     </div>
   </div>
-
   <!-- ═══════════════════════════════════════════════════════
        SCREEN 8 — Calculating Results
   ════════════════════════════════════════════════════════ -->
@@ -1035,7 +972,6 @@
       </div>
     </div>
   </div>
-
   <!-- ═══════════════════════════════════════════════════════
        SCREEN 9 — Diagnosis (Result + Yes/No)
   ════════════════════════════════════════════════════════ -->
@@ -1043,9 +979,7 @@
     <div class="card ty-wrap">
       <div class="ty-icon">🎉</div>
       <h2 class="ty-title" id="resultHeadline"></h2>
-
       <div class="result-body" id="diagnosisBody" style="text-align:left; margin-bottom:0;"></div>
-
       <div class="quick-question">
         <p class="q-label">Quick question:</p>
         <p class="q-question" id="diagnosisQuestion"></p>
@@ -1054,34 +988,28 @@
       </div>
     </div>
   </div>
-
   <!-- ═══════════════════════════════════════════════════════
        SCREEN 10 — Recommendation
   ════════════════════════════════════════════════════════ -->
   <div class="screen" id="screen-10">
     <div class="card ty-wrap">
       <p class="rec-intro">Based on your quiz answers, here's the next step I'd recommend.</p>
-
       <div class="result-box">
         <div class="result-tag">Recommended program</div>
         <a class="result-offer" id="resultOffer" href="#" target="_blank" rel="noopener"></a>
         <div class="result-body" id="recommendationBody"></div>
       </div>
-
       <a id="resultCtaBtn" href="#" target="_blank" rel="noopener" class="btn-primary" style="display:block; text-align:center; text-decoration:none; margin-bottom:16px;">
         Join Inbox Goldmine &nbsp;→
       </a>
-
       <p class="ty-sub">
         Check your inbox — we're sending you a personalised message with your exact next steps right now. ✉️
       </p>
-
       <button class="btn-primary" onclick="resetQuiz()">
         Take the Quiz Again
       </button>
     </div>
   </div>
-
   <!-- ═══════════════════════════════════════════════════════
        SCREEN 11 — Not a Match
   ════════════════════════════════════════════════════════ -->
@@ -1092,9 +1020,7 @@
       <p class="result-body" style="margin-bottom:12px;">Most people who take this quiz are somewhere between two stages in their online business journey, so it's completely normal if the result didn't feel like a perfect fit.</p>
       <p class="result-body" style="margin-bottom:12px;">The goal of this quiz is simply to help identify the smartest next step for building an online business based on where you are right now.</p>
       <p class="result-body" style="margin-bottom:20px;">Many people move through multiple stages while building their business, so it's very common to identify with more than one.</p>
-
       <p class="q-question" style="margin-bottom:4px;">Which of these feels closest to where you are right now?</p>
-
       <div class="stage-options">
         <button class="stage-btn" onclick="showStageRecommendation('explorer')">
           <span class="stage-btn-text">I'm still exploring ideas and figuring out what my business could be.</span>
@@ -1109,26 +1035,22 @@
           <span class="stage-btn-action">Show me how to improve results →</span>
         </button>
       </div>
-
       <p style="text-align:center; font-size:14px; font-style:italic; color:var(--gray-500); margin-bottom:10px;">Or, if you'd like…</p>
       <p style="text-align:center; font-size:14px; color:var(--gray-700); margin-bottom:16px;">You can retake the quiz and see if another result feels like a better match.</p>
       <button class="btn-primary" onclick="resetQuiz()">Retake the Quiz</button>
     </div>
   </div>
-
 </div><!-- /.quiz-wrap -->
-
 <script>
   // ── State ────────────────────────────────────────────────
   let current = 0;
   let abVersion = Math.random() < 0.5 ? 'A' : 'B';
-
+  let savedTimestamp = '';
+  let savedEmail = '';
   const emailFromUrl = new URLSearchParams(window.location.search).get('email') || '';
-
   if (!emailFromUrl) {
     document.getElementById('emailFieldWrap').style.display = 'block';
   }
-
   const answers = {
     q1: { key: '', label: '', category: '' },
     q2: { key: '', label: '', category: '' },
@@ -1138,7 +1060,6 @@
     q6: { key: '', label: '', category: '' },
     q7: ''
   };
-
   // ── Program links ────────────────────────────────────────
   const PROGRAMS = {
     explorer: { name: 'Inbox Goldmine',             url: 'https://leadforresults.mysamcart.com/inbox-goldmine-course' },
@@ -1147,7 +1068,6 @@
     starter:  { name: 'Business Building BootCamp', url: 'https://www.925harmony.com/bbb/' },
     grower:   { name: 'Business Building BootCamp', url: 'https://www.925harmony.com/bbb/' },
   };
-
   // ── Result content per category ──────────────────────────
   const RESULT_DATA = {
     explorer: {
@@ -1216,7 +1136,6 @@
       recommendation: 'You already have something working in your business.<br><br>Now the opportunity is building systems that allow your business to grow consistently without relying on constant launches.<br><br>Inside Business Building BootCamp, we focus on strategies that help entrepreneurs create predictable growth.<br><br><a href="#" class="result-cta">👉 Explore Business Building BootCamp</a>'
     }
   };
-
   // ── Utility ──────────────────────────────────────────────
   function showScreen(n) {
     document.getElementById(`screen-${current}`).classList.remove('active');
@@ -1225,12 +1144,10 @@
     updateProgress();
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
-
   function updateProgress() {
     const bar     = document.getElementById('progressBar');
     const fill    = document.getElementById('progressFill');
     const counter = document.getElementById('stepCounter');
-
     if (current === 0 || current >= 8) {
       bar.classList.remove('show');
       counter.classList.remove('show');
@@ -1241,7 +1158,6 @@
     fill.style.width  = (current / 7 * 100) + '%';
     counter.textContent = `Question ${current} of 7`;
   }
-
   // ── Start quiz ────────────────────────────────────────────
   function startQuiz() {
     if (!emailFromUrl) {
@@ -1257,7 +1173,6 @@
     }
     showScreen(1);
   }
-
   // Hide setup notice if URL is configured
   (function () {
     if (APPS_SCRIPT_URL !== 'YOUR_GOOGLE_APPS_SCRIPT_URL_HERE') {
@@ -1265,7 +1180,6 @@
       if (n) n.remove();
     }
   })();
-
   // ── Option selection ─────────────────────────────────────
   function pick(el) {
     const q = el.dataset.q;
@@ -1279,7 +1193,6 @@
       setTimeout(() => next(qNum), 420);
     }
   }
-
   // ── Next question ────────────────────────────────────────
   function next(qNum) {
     if (!answers[`q${qNum}`].key) {
@@ -1288,12 +1201,10 @@
     }
     showScreen(qNum + 1);
   }
-
   // ── Back ─────────────────────────────────────────────────
   function goBack() {
     if (current > 0 && current <= 7) showScreen(current - 1);
   }
-
   // ── Category scoring ─────────────────────────────────────
   function calcCategory() {
     const order  = ['explorer', 'planner', 'builder', 'starter', 'grower'];
@@ -1312,7 +1223,6 @@
     }
     return { winner, scores };
   }
-
   // ── Recommendation helpers ────────────────────────────────
   function populateRecommendation(stage, prog, recHtml) {
     document.getElementById('recommendationBody').innerHTML = recHtml;
@@ -1328,40 +1238,56 @@
       a.rel    = 'noopener';
     });
   }
-
-  function showRecommendation()           { showScreen(10); }
-  function showNotMatch()                 { showScreen(11); }
+  // ── Send yes/no response as a follow-up update ───────────
+  function sendYesNo(response) {
+    if (!APPS_SCRIPT_URL || APPS_SCRIPT_URL === 'YOUR_GOOGLE_APPS_SCRIPT_URL_HERE') return;
+    fetch(APPS_SCRIPT_URL, {
+      method:  'POST',
+      mode:    'no-cors',
+      headers: { 'Content-Type': 'application/json' },
+      body:    JSON.stringify({
+        mode:            'update',
+        timestamp:       savedTimestamp,
+        email:           savedEmail,
+        yes_no_response: response
+      })
+    }).catch(err => console.warn('Yes/No update note:', err.message));
+  }
+  function showRecommendation() {
+    sendYesNo('Yes, that sounds like me');
+    showScreen(10);
+  }
+  function showNotMatch() {
+    sendYesNo('Not really');
+    showScreen(11);
+  }
   function showStageRecommendation(stage) {
     const prog = PROGRAMS[stage];
     populateRecommendation(stage, prog, RESULT_DATA[stage].recommendation);
     showScreen(10);
   }
-
   // ── Submit ────────────────────────────────────────────────
   function submitQuiz() {
     answers.q7 = document.getElementById('q7answer').value.trim();
-
     const { winner, scores } = calcCategory();
     const result = RESULT_DATA[winner][abVersion];
     const prog   = PROGRAMS[winner];
-
     // Populate diagnosis screen (screen 9)
     document.getElementById('resultHeadline').textContent    = result.headline;
     document.getElementById('diagnosisBody').innerHTML       = result.body;
     document.getElementById('diagnosisQuestion').textContent = result.question;
-
     // Pre-populate recommendation screen (screen 10)
     populateRecommendation(winner, prog, RESULT_DATA[winner].recommendation);
-
     // Show calculating screen then diagnosis
     showScreen(8);
     setTimeout(() => showScreen(9), 2500);
-
-    // Fire-and-forget: send to Google Sheets
-    const email = emailFromUrl || document.getElementById('emailInput').value.trim();
+    // Capture email and timestamp for later yes/no update
+    savedEmail     = emailFromUrl || document.getElementById('emailInput').value.trim();
+    savedTimestamp = new Date().toISOString();
+    // Fire-and-forget: send full row to Google Sheets immediately
     const payload = {
-      timestamp:           new Date().toISOString(),
-      email:               email,
+      timestamp:           savedTimestamp,
+      email:               savedEmail,
       ab_version:          abVersion,
       q1:                  answers.q1.label,
       q2:                  answers.q2.label,
@@ -1378,7 +1304,6 @@
       score_starter:       scores.starter,
       score_grower:        scores.grower
     };
-
     if (APPS_SCRIPT_URL && APPS_SCRIPT_URL !== 'YOUR_GOOGLE_APPS_SCRIPT_URL_HERE') {
       fetch(APPS_SCRIPT_URL, {
         method:  'POST',
@@ -1388,10 +1313,11 @@
       }).catch(err => console.warn('Submission note:', err.message));
     }
   }
-
   // ── Reset ─────────────────────────────────────────────────
   function resetQuiz() {
-    abVersion = Math.random() < 0.5 ? 'A' : 'B';
+    abVersion      = Math.random() < 0.5 ? 'A' : 'B';
+    savedTimestamp = '';
+    savedEmail     = '';
     ['q1','q2','q3','q4','q5','q6'].forEach(q => {
       answers[q] = { key: '', label: '', category: '' };
     });
